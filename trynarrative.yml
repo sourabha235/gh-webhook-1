@@ -3,10 +3,10 @@
 # A list of individual tests to run.
 # Each item must include either `id` or `name` (or both).
 tests:
-  - id: smoke                     # runs the “smoke” test by ID
-  - name: "unit-tests"            # runs the suite called “unit-tests”
-  - id: "T123"                    # runs by your internal ID
-    name: "integration-tests"     # optional human label
+  - id: 682c5e0abd1db5e4e28b6360  # runs the “smoke” test by ID
+  - name: "bms-2"                 # runs the suite called “unit-tests”
+  - id: "682b579c530e904f8f42cdcb"                    # runs by your internal ID
+    name: "klarity"     # optional human label
 
 # ────────────────────────────────────────────────
 # A list of test suites to run.
