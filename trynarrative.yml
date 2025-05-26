@@ -1,0 +1,7 @@
+# trynarrative.yml
+tests:
+  - name: smoke
+    pattern: "tests/smoke/*.py"
+  - name: unit
+    pattern: "tests/unit/*.py"
+notify_on_failure: true
