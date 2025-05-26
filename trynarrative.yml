@@ -1,7 +1,18 @@
-# trynarrative.yml
+
+# ────────────────────────────────────────────────
+# A list of individual tests to run.
+# Each item must include either `id` or `name` (or both).
 tests:
-  - name: smoke
-    pattern: "tests/smoke/*.py"
-  - name: unit
-    pattern: "tests/unit/*.py"
-notify_on_failure: true
+  - id: smoke                     # runs the “smoke” test by ID
+  - name: "unit-tests"            # runs the suite called “unit-tests”
+  - id: "T123"                    # runs by your internal ID
+    name: "integration-tests"     # optional human label
+
+# ────────────────────────────────────────────────
+# A list of test suites to run.
+# Same requirement: either id or name must be present.
+test_suites:
+  - name: "regression"
+  - id: "suite-42"
+  - id: "S007"
+    name: "acceptance"
