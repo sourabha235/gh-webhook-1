@@ -3,7 +3,7 @@
 # A list of individual tests to run.
 # Each item must include either `id` or `name` (or both).
 tests:
-  - id: 6830273704a0aa3c2387c4c5  # runs the “smoke” test by ID
+  - id: 6830273704a0aa3c2387c4c5
 
 # ────────────────────────────────────────────────
 # A list of test suites to run.
