@@ -21,6 +21,7 @@ jobs:
           cfg=$(base64 -w0 < trynarrative.yml)
 
           # 2) Kick off a test run
+          # minor change to trigger the run.
           resp=$(curl -s -X POST $SERVICE_URL/api/v1/cicd/github/runs \
             -H "Authorization: Bearer $TRYNARRATIVE_API_TOKEN" \
             -H "Content-Type: application/json" \
