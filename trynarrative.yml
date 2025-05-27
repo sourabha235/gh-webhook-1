@@ -4,6 +4,7 @@
 # Each item must include either `id` or `name` (or both).
 tests:
   - id: 6830273704a0aa3c2387c4c5
+  - id: 682b579c530e904f8f42cdcb
 
 # ────────────────────────────────────────────────
 # A list of test suites to run.
