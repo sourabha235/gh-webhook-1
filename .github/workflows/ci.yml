@@ -15,13 +15,13 @@ jobs:
       - name: Trigger remote tests & wait
         env:
           TRYNARRATIVE_API_TOKEN: ${{ secrets.TRYNARRATIVE_API_TOKEN }}
-          SERVICE_URL: https://10df-205-254-163-40.ngrok-free.app
+          SERVICE_URL: https://319f-205-254-163-56.ngrok-free.app
         run: |
           # 1) Read and base64-encode your YAML
           cfg=$(base64 -w0 < trynarrative.yml)
 
           # 2) Kick off a test run
-          resp=$(curl -s -X POST $SERVICE_URL/run-tests \
+          resp=$(curl -s -X POST $SERVICE_URL/api/v1/cicd/github/runs \
             -H "Authorization: Bearer $TRYNARRATIVE_API_TOKEN" \
             -H "Content-Type: application/json" \
             -d '{
@@ -34,13 +34,14 @@ jobs:
 
           # 3) Poll status up to 5 minutes
           for i in {1..30}; do
-            status=$(curl -s $SERVICE_URL/results/$run_id | jq -r .status)
+            status=$(curl -s $SERVICE_URL/api/v1/cicd/github/runs/$run_id/status | jq -r .status)
             echo "Status: $status"
-            if [ "$status" = "done" ]; then
-              result=$(curl -s $SERVICE_URL/results/$run_id/summary | jq -r .result)
-              echo "Result: $result"
-              [ "$result" = "ok" ] || exit 1
+            if [ "$status" = "success" ]; then
               exit 0
+            fi
+            
+            if [ "$status" = "failed" ]; then
+              exit 1
             fi
             sleep 10
           done
