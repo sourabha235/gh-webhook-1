@@ -15,7 +15,7 @@ jobs:
       - name: Trigger remote tests & wait
         env:
           TRYNARRATIVE_API_TOKEN: ${{ secrets.TRYNARRATIVE_API_TOKEN }}
-          SERVICE_URL: https://319f-205-254-163-56.ngrok-free.app
+          SERVICE_URL: https://3ff1-205-254-163-56.ngrok-free.app
         run: |
           # 1) Read and base64-encode your YAML
           cfg=$(base64 -w0 < trynarrative.yml)
