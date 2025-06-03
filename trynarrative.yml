@@ -6,7 +6,7 @@ tests:
   - id: 6830273704a0aa3c2387c4c5
 
 # ────────────────────────────────────────────────
-# A list of test suites to run..
+# A list of test suites to run...
 test_suites:
   - id: "suite-42"
   - id: "S007"
